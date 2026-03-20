@@ -11,14 +11,13 @@ function FloatingOrb({ x, y, size, duration, delay, color }) {
       className="absolute rounded-full pointer-events-none"
       style={{
         left: x, top: y, width: size, height: size,
-        background: `radial-gradient(circle, ${color}40 0%, transparent 70%)`,
-        filter: 'blur(40px)',
+        background: `radial-gradient(circle, ${color}30 0%, transparent 70%)`,
+        filter: 'blur(60px)',
+        willChange: 'transform, opacity',
       }}
       animate={{
-        y: ['0%', '-20%', '0%'],
-        x: ['0%', '8%', '-5%', '0%'],
-        scale: [1, 1.15, 0.95, 1],
-        opacity: [0.5, 0.9, 0.6, 0.5],
+        y: ['0%', '-15%', '0%'],
+        opacity: [0.4, 0.7, 0.4],
       }}
       transition={{ duration, delay, repeat: Infinity, ease: 'easeInOut' }}
     />
@@ -32,10 +31,10 @@ const containerVariants = {
   visible: { transition: { staggerChildren: 0.2, delayChildren: 0.5 } },
 };
 const wordVariants = {
-  hidden:  { opacity: 0, y: 80, rotateX: -40, filter: 'blur(10px)' },
+  hidden:  { opacity: 0, y: 60 },
   visible: {
-    opacity: 1, y: 0, rotateX: 0, filter: 'blur(0px)',
-    transition: { duration: 1.1, ease: [0.22, 1, 0.36, 1] },
+    opacity: 1, y: 0,
+    transition: { duration: 0.9, ease: [0.22, 1, 0.36, 1] },
   },
 };
 
@@ -67,10 +66,8 @@ export default function HeroSection() {
 
       {/* Floating ambient orbs */}
       <div className="absolute inset-0 z-[1] overflow-hidden pointer-events-none">
-        <FloatingOrb x="10%"  y="20%"  size="400px" duration={10} delay={0}   color="#C9A96E" />
-        <FloatingOrb x="65%"  y="50%"  size="500px" duration={13} delay={1.5} color="#B87333" />
-        <FloatingOrb x="30%"  y="65%"  size="300px" duration={9}  delay={3}   color="#C9A96E" />
-        <FloatingOrb x="80%"  y="10%"  size="250px" duration={12} delay={0.8} color="#E2C97E" />
+        <FloatingOrb x="5%"   y="15%"  size="450px" duration={12} delay={0}   color="#C9A96E" />
+        <FloatingOrb x="60%"  y="45%"  size="500px" duration={15} delay={2}   color="#B87333" />
       </div>
 
       {/* Animated grain */}
@@ -143,8 +140,8 @@ export default function HeroSection() {
 
         {/* Subtitle */}
         <motion.p
-          initial={{ opacity: 0, y: 20, filter: 'blur(8px)' }}
-          animate={{ opacity: 1, y: 0,  filter: 'blur(0px)' }}
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 1.5, duration: 0.9 }}
           className="text-white/50 text-base md:text-lg font-light tracking-wide max-w-xl mx-auto mb-4"
         >

@@ -5,10 +5,10 @@ import { menuData } from '../menuData';
 const categories = Object.keys(menuData);
 
 const cardVariants = {
-  hidden:  { opacity: 0, y: 40 },
+  hidden:  { opacity: 0, y: 30 },
   visible: (i) => ({
     opacity: 1, y: 0,
-    transition: { delay: i * 0.1, duration: 0.6, ease: [0.22, 1, 0.36, 1] },
+    transition: { delay: i * 0.06, duration: 0.5, ease: [0.22, 1, 0.36, 1] },
   }),
 };
 
@@ -100,9 +100,10 @@ function MenuCard({ item, index, onOrder }) {
         <motion.img
           src={item.img}
           alt={item.name}
+          loading="lazy"
           className="w-full h-full object-cover"
-          variants={{ hovered: { scale: 1.1 } }}
-          transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
+          variants={{ hovered: { scale: 1.08 } }}
+          transition={{ duration: 0.5, ease: [0.22, 1, 0.36, 1] }}
         />
         {/* Glow overlay on hover */}
         <motion.div

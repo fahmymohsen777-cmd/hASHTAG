@@ -1,9 +1,11 @@
+import { lazy, Suspense } from 'react';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import Navbar      from './components/Navbar';
 import Footer      from './components/Footer';
-import HomePage    from './pages/HomePage';
-import MenuPage    from './pages/MenuPage';
 import { motion, useScroll, useSpring } from 'framer-motion';
+
+const HomePage = lazy(() => import('./pages/HomePage'));
+const MenuPage  = lazy(() => import('./pages/MenuPage'));
 
 export default function App() {
   const { scrollYProgress } = useScroll();
@@ -19,10 +21,12 @@ export default function App() {
 
       <Navbar />
 
-      <Routes>
-        <Route path="/"     element={<HomePage />}  />
-        <Route path="/menu" element={<MenuPage />}  />
-      </Routes>
+      <Suspense fallback={<div className="min-h-screen bg-noir" />}>
+        <Routes>
+          <Route path="/"     element={<HomePage />}  />
+          <Route path="/menu" element={<MenuPage />}  />
+        </Routes>
+      </Suspense>
 
       <Footer />
     </BrowserRouter>
