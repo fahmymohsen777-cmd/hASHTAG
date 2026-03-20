@@ -2,7 +2,7 @@ import { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 
 // ⚠️ غيّر الرقم ده لرقمك الحقيقي (كود الدولة بدون +)
-const WHATSAPP_NUMBER = '201001234567';
+const WHATSAPP_NUMBER = '201156943096';
 const WHATSAPP_MSG = 'مرحباً، أود الاستفسار عن...';
 
 export default function WhatsAppButton() {

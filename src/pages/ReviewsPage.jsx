@@ -2,9 +2,9 @@ import { motion } from 'framer-motion';
 import { Star, Quote, ExternalLink } from 'lucide-react';
 
 // ⚠️ غيّر الرابط ده لرابط Google Reviews بتاعك
-const GOOGLE_REVIEWS_URL = 'https://g.page/r/YOUR_PLACE_ID/review';
+const GOOGLE_REVIEWS_URL = 'https://maps.app.goo.gl/DqYDBXEs8y3YkVpm8';
 // ⚠️ غيّر الرقم ده لرقمك الحقيقي
-const WHATSAPP_NUMBER = '201001234567';
+const WHATSAPP_NUMBER = '201156943096';
 
 const reviews = [
   {
