@@ -97,27 +97,6 @@ export default function HeroSection() {
         style={{ opacity }}
         className="relative z-10 text-center px-5 max-w-5xl mx-auto"
       >
-        {/* Pre-title */}
-        <motion.div
-          initial={{ opacity: 0, y: -20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 1, delay: 0.2 }}
-          className="flex items-center justify-center gap-3 mb-8"
-        >
-          <motion.div
-            className="h-px bg-gold/40"
-            initial={{ width: 0 }} animate={{ width: 40 }}
-            transition={{ delay: 0.8, duration: 0.8 }}
-          />
-          <span className="text-gold/70 text-xs font-medium tracking-[0.4em] uppercase">
-            Est. 2018 · Premium Dining
-          </span>
-          <motion.div
-            className="h-px bg-gold/40"
-            initial={{ width: 0 }} animate={{ width: 40 }}
-            transition={{ delay: 0.8, duration: 0.8 }}
-          />
-        </motion.div>
 
         {/* Staggered title */}
         <motion.h1
@@ -148,31 +127,7 @@ export default function HeroSection() {
           Where every dish tells a story and every sip is a journey through the finest flavours.
         </motion.p>
 
-        {/* Animated "Live experience" badge */}
-        <motion.div
-          initial={{ opacity: 0, scale: 0.8 }}
-          animate={{ opacity: 1, scale: 1 }}
-          transition={{ delay: 1.9, duration: 0.6 }}
-          className="flex items-center justify-center gap-2 mb-10"
-        >
-          <AnimatePresence mode="wait">
-            <motion.span
-              key={count}
-              initial={{ opacity: 0, y: 8 }}
-              animate={{ opacity: 1, y: 0 }}
-              exit={{ opacity: 0, y: -8 }}
-              transition={{ duration: 0.4 }}
-              className="text-gold/50 text-xs tracking-widest italic"
-            >
-              {['Open Now · Dubai Marina', 'Tables Available Tonight', 'Reserve for Tonight →'][count]}
-            </motion.span>
-          </AnimatePresence>
-          <motion.span
-            className="w-1.5 h-1.5 rounded-full bg-green-400"
-            animate={{ scale: [1, 1.5, 1], opacity: [1, 0.5, 1] }}
-            transition={{ repeat: Infinity, duration: 1.5 }}
-          />
-        </motion.div>
+
 
         {/* CTA Buttons */}
         <motion.div

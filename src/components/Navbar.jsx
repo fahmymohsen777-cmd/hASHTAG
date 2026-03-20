@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
-import { Link, useLocation } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { Menu, X } from 'lucide-react';
 import logoImg from '../assets/logo.png';
 
@@ -14,7 +14,21 @@ export default function Navbar() {
   const [scrolled, setScrolled] = useState(false);
   const [open,     setOpen]     = useState(false);
   const location = useLocation();
+  const navigate  = useNavigate();
   const isHome = location.pathname === '/';
+
+  const handleReserve = (e) => {
+    e.preventDefault();
+    if (isHome) {
+      document.getElementById('booking')?.scrollIntoView({ behavior: 'smooth' });
+    } else {
+      navigate('/');
+      setTimeout(() => {
+        document.getElementById('booking')?.scrollIntoView({ behavior: 'smooth' });
+      }, 400);
+    }
+    setOpen(false);
+  };
 
   useEffect(() => {
     const handler = () => setScrolled(window.scrollY > 60);
@@ -69,6 +83,7 @@ export default function Navbar() {
               ) : (
                 <a
                   href={l.href}
+                  onClick={l.href === '#booking' ? handleReserve : undefined}
                   className="text-sm font-medium text-white/70 hover:text-gold transition-colors duration-300 tracking-widest uppercase"
                 >
                   {l.label}
@@ -79,14 +94,13 @@ export default function Navbar() {
         </ul>
 
         {/* Reserve CTA — desktop */}
-        {isHome && (
-          <a
-            href="#booking"
-            className="hidden md:inline-flex items-center gap-2 px-5 py-2 rounded-full border border-gold/40 text-gold text-sm font-medium tracking-widest uppercase hover:bg-gold/10 transition-all duration-300"
-          >
-            Reserve a Table
-          </a>
-        )}
+        <a
+          href="#booking"
+          onClick={handleReserve}
+          className="hidden md:inline-flex items-center gap-2 px-5 py-2 rounded-full border border-gold/40 text-gold text-sm font-medium tracking-widest uppercase hover:bg-gold/10 transition-all duration-300"
+        >
+          Reserve a Table
+        </a>
         {!isHome && (
           <Link
             to="/"
