@@ -93,21 +93,15 @@ export default function Navbar() {
           ))}
         </ul>
 
-        {/* Reserve CTA — desktop */}
-        <a
-          href="#booking"
-          onClick={handleReserve}
-          className="hidden md:inline-flex items-center gap-2 px-5 py-2 rounded-full border border-gold/40 text-gold text-sm font-medium tracking-widest uppercase hover:bg-gold/10 transition-all duration-300"
-        >
-          Reserve a Table
-        </a>
-        {!isHome && (
-          <Link
-            to="/"
+        {/* Reserve CTA — desktop (Home only) */}
+        {isHome && (
+          <a
+            href="#booking"
+            onClick={handleReserve}
             className="hidden md:inline-flex items-center gap-2 px-5 py-2 rounded-full border border-gold/40 text-gold text-sm font-medium tracking-widest uppercase hover:bg-gold/10 transition-all duration-300"
           >
-            ← Back Home
-          </Link>
+            Reserve a Table
+          </a>
         )}
 
         {/* Mobile */}
