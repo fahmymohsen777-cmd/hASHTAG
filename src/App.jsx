@@ -1,11 +1,13 @@
 import { lazy, Suspense } from 'react';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
-import Navbar      from './components/Navbar';
-import Footer      from './components/Footer';
+import Navbar           from './components/Navbar';
+import Footer           from './components/Footer';
+import WhatsAppButton   from './components/WhatsAppButton';
 import { motion, useScroll, useSpring } from 'framer-motion';
 
-const HomePage = lazy(() => import('./pages/HomePage'));
-const MenuPage  = lazy(() => import('./pages/MenuPage'));
+const HomePage    = lazy(() => import('./pages/HomePage'));
+const MenuPage    = lazy(() => import('./pages/MenuPage'));
+const ReviewsPage = lazy(() => import('./pages/ReviewsPage'));
 
 export default function App() {
   const { scrollYProgress } = useScroll();
@@ -23,10 +25,13 @@ export default function App() {
 
       <Suspense fallback={<div className="min-h-screen bg-noir" />}>
         <Routes>
-          <Route path="/"     element={<HomePage />}  />
-          <Route path="/menu" element={<MenuPage />}  />
+          <Route path="/"        element={<HomePage />}     />
+          <Route path="/menu"    element={<MenuPage />}     />
+          <Route path="/reviews" element={<ReviewsPage />}  />
         </Routes>
       </Suspense>
+
+      <WhatsAppButton />
 
       <Footer />
     </BrowserRouter>

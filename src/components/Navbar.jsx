@@ -6,6 +6,7 @@ import logoImg from '../assets/logo.png';
 
 const navLinks = [
   { label: 'Menu',    to: '/menu'    },
+  { label: 'Reviews', to: '/reviews' },
   { label: 'Reserve', href: '#booking' },
 ];
 
