@@ -22,13 +22,21 @@ export default function Navbar() {
     if (isHome) {
       document.getElementById('booking')?.scrollIntoView({ behavior: 'smooth' });
     } else {
+      sessionStorage.setItem('scrollToBooking', '1');
       navigate('/');
-      setTimeout(() => {
-        document.getElementById('booking')?.scrollIntoView({ behavior: 'smooth' });
-      }, 400);
     }
     setOpen(false);
   };
+
+  // بعد navigate للـ Home، اسكرول للحجز من sessionStorage
+  useEffect(() => {
+    if (isHome && sessionStorage.getItem('scrollToBooking')) {
+      sessionStorage.removeItem('scrollToBooking');
+      setTimeout(() => {
+        document.getElementById('booking')?.scrollIntoView({ behavior: 'smooth' });
+      }, 500);
+    }
+  }, [isHome]);
 
   useEffect(() => {
     const handler = () => setScrolled(window.scrollY > 60);
@@ -135,7 +143,7 @@ export default function Navbar() {
                 ) : (
                   <a
                     href={l.href}
-                    onClick={() => setOpen(false)}
+                    onClick={l.href === '#booking' ? handleReserve : () => setOpen(false)}
                     className="block text-sm font-medium text-white/80 hover:text-gold transition-colors uppercase tracking-widest"
                   >
                     {l.label}
