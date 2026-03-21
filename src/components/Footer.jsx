@@ -89,7 +89,7 @@ export default function Footer() {
             <ul className="space-y-3">
               {[
                 { icon: MapPin, text: '84 El-Sayed El-Merghany, Cairo, Egypt' },
-                { icon: Phone,  text: '+20 1XX XXX XXXX'                      },
+                { icon: Phone,  text: '+201156943096'                         },
                 { icon: Mail,   text: 'hello@ashtag-cafe.com'                 },
               ].map(({ icon: Icon, text }) => (
                 <li key={text} className="flex items-start gap-3">
