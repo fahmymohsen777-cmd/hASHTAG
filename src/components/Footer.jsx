@@ -1,5 +1,5 @@
 import { motion } from 'framer-motion';
-import { Link } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { Instagram, Facebook, MapPin, Phone, Mail } from 'lucide-react';
 
 /* TikTok SVG icon (not in lucide-react) */
@@ -24,6 +24,20 @@ const links = [
 ];
 
 export default function Footer() {
+  const location = useLocation();
+  const navigate = useNavigate();
+  const isHome = location.pathname === '/';
+
+  const handleReserve = (e) => {
+    e.preventDefault();
+    if (isHome) {
+      document.getElementById('booking')?.scrollIntoView({ behavior: 'smooth' });
+    } else {
+      sessionStorage.setItem('scrollToBooking', '1');
+      navigate('/');
+    }
+  };
+
   return (
     <footer className="bg-noir-800 border-t border-white/5 pt-16 pb-8 px-5">
       <div className="max-w-6xl mx-auto">
@@ -73,12 +87,22 @@ export default function Footer() {
             <ul className="space-y-3">
               {links.map(l => (
                 <li key={l.label}>
-                  <a
-                    href={l.href}
-                    className="text-white/40 text-sm hover:text-gold transition-colors duration-300"
-                  >
-                    {l.label}
-                  </a>
+                  {l.href.startsWith('/') ? (
+                    <Link
+                      to={l.href}
+                      className="text-white/40 text-sm hover:text-gold transition-colors duration-300"
+                    >
+                      {l.label}
+                    </Link>
+                  ) : (
+                    <a
+                      href={l.href}
+                      onClick={l.href === '#booking' ? handleReserve : undefined}
+                      className="text-white/40 text-sm hover:text-gold transition-colors duration-300"
+                    >
+                      {l.label}
+                    </a>
+                  )}
                 </li>
               ))}
             </ul>
