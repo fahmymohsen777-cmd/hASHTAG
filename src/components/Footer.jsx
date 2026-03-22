@@ -19,6 +19,7 @@ const socials = [
 
 const links = [
   { label: 'Menu',    href: '/menu'    },
+  { label: 'Reviews', href: '/reviews' },
   { label: 'Reserve', href: '#booking' },
 ];
 
