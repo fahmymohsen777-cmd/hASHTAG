@@ -90,7 +90,6 @@ export default function Footer() {
               {[
                 { icon: MapPin, text: '84 El-Sayed El-Merghany, Cairo, Egypt' },
                 { icon: Phone,  text: '+201156943096'                         },
-                { icon: Mail,   text: 'hello@ashtag-cafe.com'                 },
               ].map(({ icon: Icon, text }) => (
                 <li key={text} className="flex items-start gap-3">
                   <Icon className="w-4 h-4 text-gold/50 mt-0.5 shrink-0" />
