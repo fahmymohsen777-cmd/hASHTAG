@@ -12,9 +12,9 @@ function TikTokIcon({ className }) {
 }
 
 const socials = [
-  { icon: Instagram,  href: '#', label: 'Instagram' },
-  { icon: TikTokIcon, href: '#', label: 'TikTok'    },
-  { icon: Facebook,   href: '#', label: 'Facebook'  },
+  { icon: Instagram,  href: 'https://www.instagram.com/hash_tageg?igsh=MTFqenVvbHBjYnFjag==', label: 'Instagram' },
+  { icon: TikTokIcon, href: 'https://www.tiktok.com/@hashtag.eg?_r=1&_t=ZS-94tuqq26jrO',     label: 'TikTok'    },
+  { icon: Facebook,   href: 'https://www.facebook.com/share/1CKoaXKREe/',                     label: 'Facebook'  },
 ];
 
 const links = [
