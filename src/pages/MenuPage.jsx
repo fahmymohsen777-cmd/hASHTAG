@@ -1,7 +1,7 @@
 import { motion } from 'framer-motion';
 import { Download } from 'lucide-react';
 
-const TOTAL = 24;
+const TOTAL = 25;
 const pages = Array.from({ length: TOTAL }, (_, i) => `/menu-images/${i + 1}.webp`);
 
 export default function MenuPage() {
