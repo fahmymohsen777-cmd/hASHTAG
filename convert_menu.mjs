@@ -2,7 +2,7 @@ import sharp from 'sharp';
 import fs from 'fs';
 import path from 'path';
 
-const INPUT_DIR  = 'C:/Users/hp/Downloads/هشتاج/menu-images';
+const INPUT_DIR  = './New_Menu_Images';
 const OUTPUT_DIR = './public/menu-images';
 
 if (!fs.existsSync(OUTPUT_DIR)) fs.mkdirSync(OUTPUT_DIR, { recursive: true });
